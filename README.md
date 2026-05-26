@@ -6,6 +6,18 @@ Built using React, TypeScript, and Vite.
 
 ---
 
+# MUST READ
+
+Before contributing or committing any code, please read:
+
+- [Git Workflow](docs/git-flow.md)
+- [Environment Variables](docs/env.md)
+
+This helps keep the repository history clean and reduces merge conflicts during development.
+
+
+---
+
 ## Stack
 
 - React
@@ -55,13 +67,16 @@ npm run format
 Project-specific configuration and setup guides are located in `docs/`.
 
 - Environment Variables  
-  `docs/env.md`
+  [Environment Variables](docs/env.md)
 
 - Prettier  
-  `docs/prettier.md`
+  [Prettier Docs](docs/prettier.md)
 
 - Tailwind CSS  
-  `docs/tailwind.md`
+  [Tailwind docs](docs/tailwind.md)
+
+- Git Work Flow 
+  [Git Workflow](docs/git-flow.md)
 
 ---
 
