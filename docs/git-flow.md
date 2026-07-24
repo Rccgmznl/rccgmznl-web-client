@@ -6,7 +6,7 @@
 main -> stable production-ready branch
 dev  -> integration/testing branch
 feat/* -> feature branches
-````
+```
 
 ---
 
@@ -95,7 +95,7 @@ dev → main
 
 ## Notes
 
-* Pull frequently to reduce conflicts
-* Keep commits focused and readable
-* Commit history may be squashed during merge
-* Do not commit secrets or `.env` files
+- Pull frequently to reduce conflicts
+- Keep commits focused and readable
+- Commit history may be squashed during merge
+- Do not commit secrets or `.env` files

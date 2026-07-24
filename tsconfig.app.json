@@ -19,7 +19,22 @@
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "erasableSyntaxOnly": true,
-        "noFallthroughCasesInSwitch": true
+        "noFallthroughCasesInSwitch": true,
+
+        /* Aliases */
+        "paths": {
+            "@router": ["./src/router"],
+            "@router/*": [ "./src/router/*"],
+
+            "@global": ["./src/global"],
+            "@global/*": ["./src/global/*"],
+
+            "@shared": ["./src/shared"],
+            "@shared/*": ["./src/shared/*"],
+
+            "@app": ["./src/app"],
+            "@app/*": ["./src/app/*"]
+        }
     },
     "include": ["src"]
 }

@@ -2,9 +2,10 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
 import { ENV } from './config/env';
-import Root from './root';
 
 import './styles/index.css';
+import { RouterProvider } from 'react-router';
+import router from '@router';
 
 const rootElement = document.getElementById('root');
 
@@ -17,9 +18,9 @@ if (!rootElement) {
 createRoot(rootElement).render(
     ENV.ENABLE_STRICT_MODE ? (
         <StrictMode>
-            <Root />
+            <RouterProvider router={router} />
         </StrictMode>
     ) : (
-        <Root />
+        <RouterProvider router={router} />
     )
 );
