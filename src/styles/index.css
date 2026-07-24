@@ -1,21 +1,205 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
-/* reset + base */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/*
+ * Tailwind CSS v4 design-system configuration
+ */
+@theme {
+    /*
+     * FONTS
+     *
+     * Make sure Inter and Source Serif Pro are loaded separately
+     * through your HTML, npm font package, or font-face declarations.
+     */
+    --font-sans:
+        "Inter",
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    --font-serif:
+        "Source Serif Pro",
+        ui-serif,
+        Georgia,
+        Cambria,
+        "Times New Roman",
+        serif;
+
+    /*
+     * BREAKPOINTS
+     *
+     * These values are reasonable defaults because the design
+     * does not provide exact breakpoint widths.
+     */
+    --breakpoint-tablet: 48rem;  /* 768px */
+    --breakpoint-desktop: 64rem; /* 1024px */
+
+    /*
+     * TYPOGRAPHY — TABLET / BASE
+     */
+
+    /* Heading 1 */
+    --text-heading-1: 2.25rem; /* 36px */
+    --text-heading-1--line-height: 1.2;
+    --text-heading-1--font-weight: 700;
+
+    /* Heading 2 */
+    --text-heading-2: 1.75rem; /* 28px */
+    --text-heading-2--line-height: 1.25;
+    --text-heading-2--font-weight: 700;
+
+    /* Heading 3 */
+    --text-heading-3: 1.375rem; /* 22px */
+    --text-heading-3--line-height: 1.3;
+    --text-heading-3--font-weight: 700;
+
+    /* Subtitle 1 */
+    --text-subtitle-1: 1.125rem; /* 18px */
+    --text-subtitle-1--line-height: 1.5;
+    --text-subtitle-1--font-weight: 400;
+
+    /* Subtitle 2 */
+    --text-subtitle-2: 0.875rem; /* 14px */
+    --text-subtitle-2--line-height: 1.5;
+    --text-subtitle-2--font-weight: 700;
+    --text-subtitle-2--letter-spacing: 0.04em;
+
+    /* Body 1 */
+    --text-body-1: 1rem; /* 16px */
+    --text-body-1--line-height: 1.5;
+    --text-body-1--font-weight: 400;
+
+    /* Body 2 */
+    --text-body-2: 0.875rem; /* 14px */
+    --text-body-2--line-height: 1.5;
+    --text-body-2--font-weight: 400;
+
+    /*
+     * TYPOGRAPHY — DESKTOP
+     *
+     * Use with desktop:text-heading-1-desktop, etc.
+     */
+
+    --text-heading-1-desktop: 2.5rem; /* 40px */
+    --text-heading-1-desktop--line-height: 1.2;
+    --text-heading-1-desktop--font-weight: 700;
+
+    --text-heading-2-desktop: 2rem; /* 32px */
+    --text-heading-2-desktop--line-height: 1.25;
+    --text-heading-2-desktop--font-weight: 700;
+
+    --text-heading-3-desktop: 1.5rem; /* 24px */
+    --text-heading-3-desktop--line-height: 1.3;
+    --text-heading-3-desktop--font-weight: 700;
+
+    --text-subtitle-1-desktop: 1.25rem; /* 20px */
+    --text-subtitle-1-desktop--line-height: 1.5;
+    --text-subtitle-1-desktop--font-weight: 400;
+
+    /*
+     * PRIMARY — GREEN
+     */
+
+    --color-primary-900: #00a651;
+    --color-primary-800: #33b874;
+    --color-primary-700: #4dc186;
+    --color-primary-600: #66ca97;
+    --color-primary-500: #7fd2a7;
+    --color-primary-400: #99dbb9;
+    --color-primary-300: #b3e5cb;
+    --color-primary-200: #cceddc;
+    --color-primary-100: #ebefff;
+
+    /*
+     * NEUTRAL
+     */
+
+    --color-neutral-900: #212529;
+    --color-neutral-800: #343a40;
+    --color-neutral-700: #495057;
+    --color-neutral-600: #6c757d;
+    --color-neutral-500: #adb5bd;
+    --color-neutral-400: #ced4da;
+    --color-neutral-300: #dee2e6;
+    --color-neutral-200: #e9ecef;
+    --color-neutral-100: #f8f9fa;
+
+    --color-black: #000000;
+    --color-white: #ffffff;
+
+    /*
+     * SECONDARY — PURPLE
+     */
+
+    --color-secondary-900: #1b1464;
+    --color-secondary-800: #494383;
+    --color-secondary-700: #605b93;
+    --color-secondary-600: #7672a2;
+    --color-secondary-500: #8c89b1;
+    --color-secondary-400: #a4a1c1;
+    --color-secondary-300: #bbb9d1;
+    --color-secondary-200: #d1d0e0;
+    --color-secondary-100: #e9e8f0;
+
+    /*
+     * SECONDARY — RED
+     */
+
+    --color-accent-900: #ed1c24;
+    --color-accent-800: #f14950;
+    --color-accent-700: #f36166;
+    --color-accent-600: #f4777c;
+    --color-accent-500: #f58d91;
+    --color-accent-400: #f8a4a7;
+    --color-accent-300: #fabbbe;
+    --color-accent-200: #fbd2d3;
+    --color-accent-100: #fee9ea;
+
+    /*
+     * TRANSPARENCY
+     */
+
+    --opacity-100: 100%;
+    --opacity-80: 80%;
+    --opacity-64: 64%;
+    --opacity-56: 56%;
+    --opacity-40: 40%;
+    --opacity-24: 24%;
+    --opacity-16: 16%;
+    --opacity-8: 8%;
+    --opacity-4: 4%;
 }
 
-html,
-body,
-#root {
-    width: 100%;
-    min-height: 100%;
-}
+/*
+ * BASE STYLES
+ *
+ * Tailwind already includes Preflight, so a full manual margin/padding
+ * reset is generally unnecessary.
+ */
+@layer base {
+    html,
+    body,
+    #root {
+        width: 100%;
+        min-height: 100%;
+    }
 
-body {
-    font-family: sans-serif;
+    body {
+        background: var(--color-white);
+        color: var(--color-neutral-900);
+        font-family: var(--font-sans);
+        font-size: 1rem;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+        font: inherit;
+    }
 }

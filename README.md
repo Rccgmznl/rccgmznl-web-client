@@ -15,7 +15,6 @@ Before contributing or committing any code, please read:
 
 This helps keep the repository history clean and reduces merge conflicts during development.
 
-
 ---
 
 ## Stack
@@ -25,6 +24,7 @@ This helps keep the repository history clean and reduces merge conflicts during 
 - Vite
 - ESLint
 - Prettier
+- Tailwind Css
 
 ---
 
@@ -75,8 +75,11 @@ Project-specific configuration and setup guides are located in `docs/`.
 - Tailwind CSS  
   [Tailwind docs](docs/tailwind.md)
 
-- Git Work Flow 
+- Git Work Flow
   [Git Workflow](docs/git-flow.md)
+
+- Icons Used
+  [Icons](docs/icons.md)
 
 ---
 
