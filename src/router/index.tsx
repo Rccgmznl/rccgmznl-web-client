@@ -3,14 +3,16 @@ import Root from "../root";
 import ErrorElement from "@shared/ErrorElement";
 import NotFoundPage from "@global/NotFoundPage";
 import { landingRoutes } from "@app/landing";
+import { authRoutes } from "@app/auth";
 
 
 const allRoutes: RouteObject[] = [
     {
         element: <Root />,
-        errorElement: <ErrorElement/>,
+        errorElement: <ErrorElement />,
         children: [
             landingRoutes,
+            authRoutes,
         ]
     },
 
