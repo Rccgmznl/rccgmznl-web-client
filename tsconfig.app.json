@@ -23,6 +23,12 @@
 
         /* Aliases */
         "paths": {
+            "@config": ["./src/config"],
+            "@config/*": [ "./src/config/*"],
+
+            "@services": ["./src/services"],
+            "@services/*": [ "./src/services/*"],
+
             "@router": ["./src/router"],
             "@router/*": [ "./src/router/*"],
 
@@ -31,6 +37,12 @@
 
             "@shared": ["./src/shared"],
             "@shared/*": ["./src/shared/*"],
+
+            "@utils": ["./src/utils"],
+            "@utils/*": ["./src/utils/*"],
+
+            "@features": ["./src/features"],
+            "@features/*": ["./src/features/*"],
 
             "@app": ["./src/app"],
             "@app/*": ["./src/app/*"]
