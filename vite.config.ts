@@ -15,10 +15,14 @@ export default defineConfig({
     plugins: [react(), tailwindcss()],
     resolve: {
         alias: {
+            '@config': path.resolve(__dirname, 'src/config'),
             '@app': path.resolve(__dirname, 'src/app'),
+            '@services': path.resolve(__dirname, 'src/services'),
             '@global': path.resolve(__dirname, 'src/global'),
             '@router': path.resolve(__dirname, 'src/router'),
             '@shared': path.resolve(__dirname, 'src/shared'),
+            '@utils': path.resolve(__dirname, 'src/utils'),
+            '@features': path.resolve(__dirname, 'src/features'),
         }
     },
 });
