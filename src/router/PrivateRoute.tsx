@@ -1,6 +1,6 @@
-import { useAuthContext } from "@features/auth";
-import type { ReactNode } from "react";
-import { Navigate } from "react-router";
+import { useAuthContext } from '@features/auth';
+import type { ReactNode } from 'react';
+import { Navigate } from 'react-router';
 
 interface PrivateRouteProps {
     children: ReactNode;
@@ -15,18 +15,11 @@ interface PrivateRouteProps {
  * Unauthenticated users are redirected to the login page. Their original
  * location is preserved so the login page may return them after authentication.
  */
-export default function PrivateRoute({
-    children,
-}: PrivateRouteProps) {
+export default function PrivateRoute({ children }: PrivateRouteProps) {
     const { authState } = useAuthContext();
 
-    if (authState.status === "unauthenticated") {
-        return (
-            <Navigate
-                to="/login"
-                replace
-            />
-        );
+    if (authState.status === 'unauthenticated') {
+        return <Navigate to="/login" replace />;
     }
 
     return children;

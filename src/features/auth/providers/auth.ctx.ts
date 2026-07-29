@@ -1,5 +1,5 @@
-import { createContext, useContext } from "react";
-import type { AuthContextInterface } from "../types";
+import { createContext, useContext } from 'react';
+import type { AuthContextInterface } from '../types';
 
 /**
  * Provides authentication state and actions to components within
@@ -8,9 +8,9 @@ import type { AuthContextInterface } from "../types";
  * The default value is intentionally undefined so that accessing the
  * context outside of an AuthProvider produces a clear runtime error.
  */
-export const AuthContext = createContext<
-    AuthContextInterface | undefined
->(undefined);
+export const AuthContext = createContext<AuthContextInterface | undefined>(
+    undefined
+);
 
 /**
  * Returns the current authentication context.
@@ -24,9 +24,7 @@ export function useAuthContext(): AuthContextInterface {
     const context = useContext(AuthContext);
 
     if (context === undefined) {
-        throw new Error(
-            "useAuthContext must be used within an AuthProvider.",
-        );
+        throw new Error('useAuthContext must be used within an AuthProvider.');
     }
 
     return context;

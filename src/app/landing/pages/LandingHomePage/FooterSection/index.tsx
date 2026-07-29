@@ -1,71 +1,66 @@
-import { Link } from "react-router";
-import {
-    FiArrowUpRight,
-    FiMail,
-    FiMapPin,
-    FiPhone,
-} from "react-icons/fi";
+import { Link } from 'react-router';
+import { FiArrowUpRight, FiMail, FiMapPin, FiPhone } from 'react-icons/fi';
 import {
     FaFacebookF,
     FaInstagram,
     FaXTwitter,
     FaYoutube,
-} from "react-icons/fa6";
+} from 'react-icons/fa6';
 
-import unavailableImg from "@shared/images/unavailable.png";
+import unavailableImg from '@shared/images/unavailable.png';
 
 const footerLinks = [
     {
-        title: "Our Church",
+        title: 'Our Church',
         links: [
-            { label: "About Us", to: "/the-church" },
-            { label: "Our Leadership", to: "/the-church/leadership" },
-            { label: "Visit", to: "/visit" },
-            { label: "I'm New", to: "/im-new" },
+            { label: 'About Us', to: '/the-church' },
+            { label: 'Our Leadership', to: '/the-church/leadership' },
+            { label: 'Visit', to: '/visit' },
+            { label: "I'm New", to: '/im-new' },
         ],
     },
     {
-        title: "Departments",
+        title: 'Departments',
         links: [
-            { label: "Housekeepers of God", to: "/departments/housekeepers" },
-            { label: "The Doorkeepers", to: "/departments/doorkeepers" },
-            { label: "The Keepers Ministry", to: "/departments/keepers" },
-            { label: "Technical Unit", to: "/departments/technical" },
-            { label: "Children's Department", to: "/departments/children" },
-            { label: "Men of Valor", to: "/departments/men-of-valor" },
-            { label: "Young Adults", to: "/departments/young-adults" },
+            { label: 'Housekeepers of God', to: '/departments/housekeepers' },
+            { label: 'The Doorkeepers', to: '/departments/doorkeepers' },
+            { label: 'The Keepers Ministry', to: '/departments/keepers' },
+            { label: 'Technical Unit', to: '/departments/technical' },
+            { label: "Children's Department", to: '/departments/children' },
+            { label: 'Men of Valor', to: '/departments/men-of-valor' },
+            { label: 'Young Adults', to: '/departments/young-adults' },
         ],
     },
     {
-        title: "More",
+        title: 'More',
         links: [
-            { label: "Teachings", to: "/sermons" },
-            { label: "Make a Prayer Request", to: "/prayer-request" },
-            { label: "Testimonies", to: "/testimonies" },
-            { label: "Request a Ride", to: "/request-a-ride" },
+            { label: 'Teachings', to: '/sermons' },
+            { label: 'Make a Prayer Request', to: '/prayer-request' },
+            { label: 'Testimonies', to: '/testimonies' },
+            { label: 'Request a Ride', to: '/request-a-ride' },
         ],
     },
 ];
 
 const socialLinks = [
     {
-        label: "YouTube",
-        href: "#",
+        label: 'YouTube',
+        href: '#',
         icon: FaYoutube,
     },
     {
-        label: "X",
-        href: "#",
+        label: 'X',
+        href: '#',
         icon: FaXTwitter,
     },
     {
-        label: "Facebook",
-        href: "#",
+        label: 'Facebook',
+        href: '#',
         icon: FaFacebookF,
     },
     {
-        label: "Instagram",
-        href: "#",
+        label: 'Instagram',
+        href: '#',
         icon: FaInstagram,
     },
 ];
@@ -102,8 +97,8 @@ export default function FooterSection() {
                         </Link>
 
                         <p className="mt-6 max-w-sm text-sm leading-6 text-white/55">
-                            A welcoming church community committed to growing
-                            in faith, serving others and sharing the love of
+                            A welcoming church community committed to growing in
+                            faith, serving others and sharing the love of
                             Christ.
                         </p>
 
@@ -116,7 +111,6 @@ export default function FooterSection() {
                                     aria-hidden="true"
                                     className="text-lg text-primary-900"
                                 />
-
                                 (709) 770-2501
                             </a>
 
@@ -128,7 +122,6 @@ export default function FooterSection() {
                                     aria-hidden="true"
                                     className="text-lg text-primary-900"
                                 />
-
                                 info@rccgmountzionnl.org
                             </a>
 
@@ -138,9 +131,7 @@ export default function FooterSection() {
                                     className="mt-1 shrink-0 text-lg text-primary-900"
                                 />
 
-                                <span>
-                                    Add the full church address here
-                                </span>
+                                <span>Add the full church address here</span>
                             </div>
                         </address>
                     </div>
@@ -157,11 +148,11 @@ export default function FooterSection() {
 
                             <ul
                                 className={[
-                                    "mt-6 grid gap-x-5 gap-y-4",
-                                    group.title === "Departments"
-                                        ? "sm:grid-cols-2 lg:grid-cols-2"
-                                        : "",
-                                ].join(" ")}
+                                    'mt-6 grid gap-x-5 gap-y-4',
+                                    group.title === 'Departments'
+                                        ? 'sm:grid-cols-2 lg:grid-cols-2'
+                                        : '',
+                                ].join(' ')}
                             >
                                 {group.links.map((link) => (
                                     <li key={link.to}>

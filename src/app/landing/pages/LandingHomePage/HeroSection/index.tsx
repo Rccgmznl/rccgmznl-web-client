@@ -1,37 +1,35 @@
-import { Link } from "react-router";
-import {
-    FiChevronLeft,
-    FiChevronRight,
-} from "react-icons/fi";
+import { Link } from 'react-router';
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import {
     FaFacebookF,
     FaInstagram,
     FaXTwitter,
     FaYoutube,
-} from "react-icons/fa6";
+} from 'react-icons/fa6';
 
-import unavailableImg from "@shared/images/unavailable.png";
-import HeroSectionHeader from "./HeroSectionHeader";
+import unavailableImg from '@shared/images/unavailable.png';
+import HeroSectionHeader from './HeroSectionHeader';
+import HeroSectionBibleVerse from './HeroSectionBibleVerse';
 
 const socialLinks = [
     {
-        label: "YouTube",
-        href: "#",
+        label: 'YouTube',
+        href: '#',
         icon: FaYoutube,
     },
     {
-        label: "X",
-        href: "#",
+        label: 'X',
+        href: '#',
         icon: FaXTwitter,
     },
     {
-        label: "Facebook",
-        href: "#",
+        label: 'Facebook',
+        href: '#',
         icon: FaFacebookF,
     },
     {
-        label: "Instagram",
-        href: "#",
+        label: 'Instagram',
+        href: '#',
         icon: FaInstagram,
     },
 ];
@@ -82,9 +80,7 @@ export default function HeroSection() {
                         </div>
 
                         <h1 className="font-sans text-[clamp(3.4rem,9vw,8rem)] font-black uppercase leading-[0.82] tracking-[-0.055em]">
-                            <span className="block text-white">
-                                Welcome
-                            </span>
+                            <span className="block text-white">Welcome</span>
 
                             <span className="mt-2 block text-primary-900">
                                 Home!
@@ -104,33 +100,7 @@ export default function HeroSection() {
                     </div>
 
                     {/* Bible verse */}
-                    <article className="max-w-xl justify-self-end rounded-3xl border border-white/10 bg-black/25 p-6 text-right shadow-2xl shadow-black/20 backdrop-blur-md sm:p-8 lg:self-start lg:mt-12">
-                        <p className="text-sm font-bold text-primary-900 sm:text-base">
-                            Psalm 100:4
-                        </p>
-
-                        <blockquote className="mt-4 font-serif text-xl leading-relaxed text-white/90 sm:text-2xl">
-                            <span
-                                aria-hidden="true"
-                                className="mr-1 text-3xl leading-none text-primary-900"
-                            >
-                                “
-                            </span>
-
-                            Enter his gates with thanksgiving, and his
-                            courts with{" "}
-                            <strong className="font-semibold text-primary-900">
-                                praise
-                            </strong>
-
-                            <span
-                                aria-hidden="true"
-                                className="ml-1 text-3xl leading-none text-primary-900"
-                            >
-                                ”
-                            </span>
-                        </blockquote>
-                    </article>
+                    <HeroSectionBibleVerse />
                 </div>
 
                 {/* Bottom controls */}

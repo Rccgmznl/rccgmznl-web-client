@@ -1,24 +1,20 @@
-import { Link } from "react-router";
-import {
-    FiArrowUpRight,
-    FiCompass,
-    FiTarget,
-} from "react-icons/fi";
+import { Link } from 'react-router';
+import { FiArrowUpRight, FiCompass, FiTarget } from 'react-icons/fi';
 
-import unavailableImg from "@shared/images/unavailable.png";
+import unavailableImg from '@shared/images/unavailable.png';
 
 const churchPurpose = [
     {
-        title: "The Mission",
+        title: 'The Mission',
         icon: FiTarget,
         content:
-            "The mission of the Redeemed Christian Church of God is to make heaven, take as many people with us, and have a member of RCCG in every family of all nations.",
+            'The mission of the Redeemed Christian Church of God is to make heaven, take as many people with us, and have a member of RCCG in every family of all nations.',
     },
     {
-        title: "The Vision",
+        title: 'The Vision',
         icon: FiCompass,
         content:
-            "We pursue these objectives until every nation in the world is reached for Jesus Christ, with a focus on holiness, discipleship, and church planting.",
+            'We pursue these objectives until every nation in the world is reached for Jesus Christ, with a focus on holiness, discipleship, and church planting.',
     },
 ];
 
@@ -42,10 +38,8 @@ export default function LeadersSection() {
                             sm:text-4xl lg:text-5xl
                         "
                     >
-                        Meet our{" "}
-                        <span className="text-primary-900">
-                            leaders
-                        </span>
+                        Meet our{' '}
+                        <span className="text-primary-900">leaders</span>
                     </h2>
                 </header>
 
@@ -115,7 +109,6 @@ export default function LeadersSection() {
                                     "
                                 >
                                     Meet our pastors
-
                                     <FiArrowUpRight
                                         aria-hidden="true"
                                         className="
@@ -203,16 +196,16 @@ export default function LeadersSection() {
                                                     "
                                                 >
                                                     {item.title ===
-                                                        "The Mission" ? (
+                                                    'The Mission' ? (
                                                         <>
-                                                            The{" "}
+                                                            The{' '}
                                                             <span className="text-primary-900">
                                                                 Mission
                                                             </span>
                                                         </>
                                                     ) : (
                                                         <>
-                                                            The{" "}
+                                                            The{' '}
                                                             <span className="text-primary-900">
                                                                 Vision
                                                             </span>
@@ -250,7 +243,6 @@ export default function LeadersSection() {
                             "
                         >
                             Learn more about our church
-
                             <FiArrowUpRight
                                 aria-hidden="true"
                                 className="

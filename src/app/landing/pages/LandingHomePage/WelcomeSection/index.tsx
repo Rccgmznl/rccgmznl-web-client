@@ -1,28 +1,24 @@
-import { Link } from "react-router";
-import {
-    FiArrowUpRight,
-    FiCalendar,
-    FiHeart,
-} from "react-icons/fi";
+import { Link } from 'react-router';
+import { FiArrowUpRight, FiCalendar, FiHeart } from 'react-icons/fi';
 
-import unavailableImg from "@shared/images/unavailable.png";
+import unavailableImg from '@shared/images/unavailable.png';
 
 const welcomeActions = [
     {
         label: "First Time? Let's Begin",
-        to: "/new",
+        to: '/new',
         icon: FiArrowUpRight,
         primary: true,
     },
     {
-        label: "See What’s Happening",
-        to: "/events",
+        label: 'See What’s Happening',
+        to: '/events',
         icon: FiCalendar,
         primary: false,
     },
     {
-        label: "How We Worship",
-        to: "/about",
+        label: 'How We Worship',
+        to: '/about',
         icon: FiHeart,
         primary: false,
     },
@@ -112,19 +108,19 @@ export default function WelcomeSection() {
                             sm:text-lg sm:leading-8
                         "
                     >
-                        It is my{" "}
+                        It is my{' '}
                         <strong className="font-semibold text-neutral-900">
                             pleasure
-                        </strong>{" "}
-                        to welcome all the brothers and sisters of the{" "}
+                        </strong>{' '}
+                        to welcome all the brothers and sisters of the{' '}
                         <strong className="font-semibold text-neutral-900">
                             church
                         </strong>
                         . We want to thank everyone for taking time out of their
-                        days to give{" "}
+                        days to give{' '}
                         <strong className="font-semibold text-neutral-900">
                             praise to the Lord
-                        </strong>{" "}
+                        </strong>{' '}
                         for continuing to bless their lives day in and day out.
                     </p>
 
@@ -170,7 +166,7 @@ export default function WelcomeSection() {
                                                 hover:shadow-xl
                                                 hover:shadow-primary-900/15
                                             `,
-                                    ].join(" ")}
+                                    ].join(' ')}
                                 >
                                     <span
                                         className="

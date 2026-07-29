@@ -1,4 +1,4 @@
-export * from "./providers/auth.ctx";
+export * from './providers/auth.ctx';
 
-import AuthProvider from "./providers/auth.provider";
+import AuthProvider from './providers/auth.provider';
 export default AuthProvider;

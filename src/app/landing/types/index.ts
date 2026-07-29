@@ -1,1 +1,1 @@
-export * from "./landing.types";
+export * from './landing.types';

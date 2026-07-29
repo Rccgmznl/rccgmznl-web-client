@@ -1,5 +1,5 @@
-import { Link } from "react-router";
-import { FiArrowRight, FiHeart } from "react-icons/fi";
+import { Link } from 'react-router';
+import { FiArrowRight, FiHeart } from 'react-icons/fi';
 
 export default function GivingSection() {
     return (
@@ -73,7 +73,7 @@ export default function GivingSection() {
                                 sm:text-4xl
                             "
                         >
-                            Your generosity helps us{" "}
+                            Your generosity helps us{' '}
                             <span className="text-primary-900">
                                 serve and reach others.
                             </span>
@@ -112,7 +112,6 @@ export default function GivingSection() {
                         "
                     >
                         Give now
-
                         <FiArrowRight
                             aria-hidden="true"
                             className="

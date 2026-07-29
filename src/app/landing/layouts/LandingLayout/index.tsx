@@ -1,5 +1,5 @@
-import LandingProvider from "@app/landing/providers/landing.provider";
-import { Outlet } from "react-router";
+import LandingProvider from '@app/landing/providers/landing.provider';
+import { Outlet } from 'react-router';
 
 export default function LandingLayout() {
     return (

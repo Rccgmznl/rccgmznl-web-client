@@ -11,8 +11,10 @@ export interface ApiResponseInterface<T> {
     errors?: ApiErrors;
 }
 
-export interface CreateMockResponseInterface<T>
-    extends Omit<ApiResponseInterface<T>, "status_code"> {
+export interface CreateMockResponseInterface<T> extends Omit<
+    ApiResponseInterface<T>,
+    'status_code'
+> {
     status_code?: number;
     delay?: number;
 }
@@ -41,7 +43,7 @@ export function createMockResponse<T>({
 
 export function getApiResponseErrorMsg(
     response: ApiResponseInterface<unknown>,
-    fallback: string,
+    fallback: string
 ): string {
     const errorsArray = Object.entries(response.errors ?? {});
 
@@ -51,7 +53,7 @@ export function getApiResponseErrorMsg(
 
     return errorsArray
         .map(([field, messages]) => {
-            return `${field}: ${messages.join(", ")}`;
+            return `${field}: ${messages.join(', ')}`;
         })
-        .join("\n");
+        .join('\n');
 }

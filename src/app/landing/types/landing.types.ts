@@ -1,9 +1,17 @@
 export interface LandingSession {
-    isEditMode: boolean
+    isEditMode: boolean;
 }
 
 export interface LandingContextInterface {
     landingSession: LandingSession;
+
+    /**
+     * Replaces the current landing-page session and persists it locally.
+     */
     updateLandingSession: (session: LandingSession) => void;
-    removeLandingSession: () => void;
+
+    /**
+     * Clears the persisted landing-page session and restores its defaults.
+     */
+    resetLandingSession: () => void;
 }

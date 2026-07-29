@@ -24,13 +24,16 @@
         /* Aliases */
         "paths": {
             "@config": ["./src/config"],
-            "@config/*": [ "./src/config/*"],
+            "@config/*": ["./src/config/*"],
+
+            "@assets": ["./src/assets"],
+            "@assets/*": ["./src/assets/*"],
 
             "@services": ["./src/services"],
-            "@services/*": [ "./src/services/*"],
+            "@services/*": ["./src/services/*"],
 
             "@router": ["./src/router"],
-            "@router/*": [ "./src/router/*"],
+            "@router/*": ["./src/router/*"],
 
             "@global": ["./src/global"],
             "@global/*": ["./src/global/*"],

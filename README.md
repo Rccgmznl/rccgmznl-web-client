@@ -65,6 +65,7 @@ npm run format
 ## Documentation
 
 Project-specific configuration and setup guides are located in `docs/`.
+This also include packages installed and why
 
 - Environment Variables  
   [Environment Variables](docs/env.md)
@@ -80,6 +81,9 @@ Project-specific configuration and setup guides are located in `docs/`.
 
 - Icons Used
   [Icons](docs/icons.md)
+
+- Tanstack React Query, Just simply because of the memory caching fight me!
+  [Tanstack React Query](docs/tanstack-react-query.md)
 
 ---
 

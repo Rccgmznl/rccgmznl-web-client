@@ -1,12 +1,12 @@
-import unavailableImg from "@shared/images/unavailable.png";
+import unavailableImg from '@shared/images/unavailable.png';
 
 type GallerySlot =
-    | "lead"
-    | "feature"
-    | "strip"
-    | "community"
-    | "worship"
-    | "prayer";
+    | 'lead'
+    | 'feature'
+    | 'strip'
+    | 'community'
+    | 'worship'
+    | 'prayer';
 
 interface GalleryImage {
     id: string;
@@ -21,44 +21,44 @@ interface GalleryImage {
 
 const galleryImages: GalleryImage[] = [
     {
-        id: "1",
-        slot: "lead",
+        id: '1',
+        slot: 'lead',
         src: unavailableImg,
-        alt: "Church members praying together during worship",
+        alt: 'Church members praying together during worship',
         focalPoint: { x: 50, y: 40 },
     },
     {
-        id: "2",
-        slot: "feature",
+        id: '2',
+        slot: 'feature',
         src: unavailableImg,
-        alt: "A worshipper raising her hands in praise",
+        alt: 'A worshipper raising her hands in praise',
         focalPoint: { x: 50, y: 35 },
     },
     {
-        id: "3",
-        slot: "strip",
+        id: '3',
+        slot: 'strip',
         src: unavailableImg,
-        alt: "Celebration lights during a church gathering",
+        alt: 'Celebration lights during a church gathering',
     },
     {
-        id: "4",
-        slot: "community",
+        id: '4',
+        slot: 'community',
         src: unavailableImg,
-        alt: "The congregation worshipping together",
+        alt: 'The congregation worshipping together',
         focalPoint: { x: 50, y: 40 },
     },
     {
-        id: "5",
-        slot: "worship",
+        id: '5',
+        slot: 'worship',
         src: unavailableImg,
-        alt: "A large crowd raising their hands during worship",
+        alt: 'A large crowd raising their hands during worship',
         focalPoint: { x: 50, y: 45 },
     },
     {
-        id: "6",
-        slot: "prayer",
+        id: '6',
+        slot: 'prayer',
         src: unavailableImg,
-        alt: "A church member praying during the service",
+        alt: 'A church member praying during the service',
         focalPoint: { x: 50, y: 40 },
     },
 ];
@@ -122,10 +122,8 @@ export default function ImageGallery() {
                             sm:text-4xl lg:text-5xl
                         "
                     >
-                        From our recent{" "}
-                        <span className="text-primary-900">
-                            events
-                        </span>
+                        From our recent{' '}
+                        <span className="text-primary-900">events</span>
                     </h2>
 
                     <p className="mt-4 max-w-xl text-sm font-semibold uppercase tracking-[0.12em] text-white/60 sm:text-base">
@@ -146,7 +144,7 @@ export default function ImageGallery() {
                     {galleryImages.map((image) => {
                         const focalPoint = image.focalPoint
                             ? `${image.focalPoint.x}% ${image.focalPoint.y}%`
-                            : "center";
+                            : 'center';
 
                         return (
                             <li

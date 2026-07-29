@@ -1,14 +1,14 @@
 export type AuthState =
     | {
-        status: "initializing";
-    }
+          status: 'initializing';
+      }
     | {
-        status: "authenticated";
-        accessToken: string;
-    }
+          status: 'authenticated';
+          accessToken: string;
+      }
     | {
-        status: "unauthenticated";
-    };
+          status: 'unauthenticated';
+      };
 
 export interface AuthContextInterface {
     authState: AuthState;
@@ -29,5 +29,4 @@ export interface AuthContextInterface {
      * fails.
      */
     logout: () => void;
-
 }
