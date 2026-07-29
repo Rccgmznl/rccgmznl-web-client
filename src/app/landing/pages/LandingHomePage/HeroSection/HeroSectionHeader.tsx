@@ -1,8 +1,8 @@
-import { ENV } from "@config/env";
-import { useAuthContext } from "@features/auth";
-import { mockLogout } from "@features/auth/api/logout.mock";
-import { getApiResponseErrorMsg } from "@services/api.service";
-import { getTryCatchErrorMsg } from "@utils/getTryCatchErrorMsg";
+import { ENV } from '@config/env';
+import { useAuthContext } from '@features/auth';
+import { mockLogout } from '@features/auth/api';
+import { getApiResponseErrorMsg } from '@services/api.service';
+import { getTryCatchErrorMsg } from '@utils/getTryCatchErrorMsg';
 import {
     FiEdit3,
     FiGrid,
@@ -10,23 +10,20 @@ import {
     FiLogOut,
     FiMenu,
     FiSettings,
-} from "react-icons/fi";
-import {
-    useEffect,
-    useRef,
-    useState,
-} from "react";
-import { Link, NavLink } from "react-router";
+} from 'react-icons/fi';
+import { useEffect, useRef, useState } from 'react';
+import { Link, NavLink } from 'react-router';
 
-import unavailableImg from "@shared/images/unavailable.png";
-import { useLandingContext } from "@app/landing/providers/landing.ctx";
+import unavailableImg from '@shared/images/unavailable.png';
+import { useLandingContext } from '@app/landing/providers/landing.ctx';
+import Logo from '@shared/Logo';
 
 const navigationItems = [
-    { label: "Home", to: "/" },
-    { label: "I'm New", to: "/im-new" },
-    { label: "The Church", to: "/the-church" },
-    { label: "Programs", to: "/programs" },
-    { label: "Give", to: "/donate" },
+    { label: 'Home', to: '/' },
+    { label: "I'm New", to: '/im-new' },
+    { label: 'The Church', to: '/the-church' },
+    { label: 'Programs', to: '/programs' },
+    { label: 'Give', to: '/donate' },
 ];
 
 interface HeaderUser {
@@ -34,7 +31,7 @@ interface HeaderUser {
     lastName: string;
     email: string;
     avatarUrl?: string | null;
-    role: "admin" | "member";
+    role: 'admin' | 'member';
 }
 
 interface HeaderDropDownProps {
@@ -42,11 +39,8 @@ interface HeaderDropDownProps {
     onClose: () => void;
 }
 
-function HeaderDropDown({
-    user,
-    onClose,
-}: HeaderDropDownProps) {
-    const isAdmin = user.role === "admin";
+function HeaderDropDown({ user, onClose }: HeaderDropDownProps) {
+    const isAdmin = user.role === 'admin';
     const fullName = `${user.firstName} ${user.lastName}`;
 
     const { landingSession, updateLandingSession } = useLandingContext();
@@ -55,15 +49,17 @@ function HeaderDropDown({
     const onToggleEditMode = () => {
         updateLandingSession({
             ...landingSession,
-            isEditMode: !landingSession.isEditMode
+            isEditMode: !landingSession.isEditMode,
         });
-    }
+    };
 
     return (
         <div
             id="header-profile-dropdown"
             className="
-                absolute right-0 top-[calc(100%+2rem)]
+                absolute right-0 top-[calc(100%+3rem)]
+                lg:top-[calc(100%+2.5rem)]
+                md:top-[calc(100%+1.5rem)]
                 z-50 w-[min(22rem,calc(100vw-2rem))]
                 overflow-hidden rounded-3xl
                 border border-white/10
@@ -113,7 +109,7 @@ function HeaderDropDown({
                                     text-primary-400
                                 "
                             >
-                                {isAdmin ? "Administrator" : "Member"}
+                                {isAdmin ? 'Administrator' : 'Member'}
                             </span>
                         </div>
 
@@ -129,7 +125,7 @@ function HeaderDropDown({
                 <ul className="space-y-1">
                     <li>
                         <Link
-                            to={isAdmin ? "/admin" : "/dashboard"}
+                            to={isAdmin ? '/admin' : '/dashboard'}
                             onClick={onClose}
                             className="
                                 group flex items-center gap-3
@@ -220,9 +216,9 @@ function HeaderDropDown({
                                 transition-colors
                             `,
                             isEditMode
-                                ? "border-primary-900/50 bg-primary-900/10"
-                                : "border-white/10 bg-neutral-800/70",
-                        ].join(" ")}
+                                ? 'border-primary-900/50 bg-primary-900/10'
+                                : 'border-white/10 bg-neutral-800/70',
+                        ].join(' ')}
                     >
                         <span
                             className={[
@@ -232,9 +228,9 @@ function HeaderDropDown({
                                     text-lg transition-colors
                                 `,
                                 isEditMode
-                                    ? "bg-primary-900 text-white"
-                                    : "bg-neutral-700 text-neutral-300",
-                            ].join(" ")}
+                                    ? 'bg-primary-900 text-white'
+                                    : 'bg-neutral-700 text-neutral-300',
+                            ].join(' ')}
                         >
                             <FiEdit3 aria-hidden="true" />
                         </span>
@@ -252,11 +248,11 @@ function HeaderDropDown({
                                             uppercase tracking-wide
                                         `,
                                         isEditMode
-                                            ? "text-primary-400"
-                                            : "text-neutral-500",
-                                    ].join(" ")}
+                                            ? 'text-primary-400'
+                                            : 'text-neutral-500',
+                                    ].join(' ')}
                                 >
-                                    {isEditMode ? "On" : "Off"}
+                                    {isEditMode ? 'On' : 'Off'}
                                 </span>
                             </div>
 
@@ -282,9 +278,9 @@ function HeaderDropDown({
                                     focus-visible:ring-offset-neutral-900
                                 `,
                                 isEditMode
-                                    ? "bg-primary-900"
-                                    : "bg-neutral-600",
-                            ].join(" ")}
+                                    ? 'bg-primary-900'
+                                    : 'bg-neutral-600',
+                            ].join(' ')}
                         >
                             <span
                                 aria-hidden="true"
@@ -296,9 +292,9 @@ function HeaderDropDown({
                                         transition-transform duration-200
                                     `,
                                     isEditMode
-                                        ? "translate-x-5"
-                                        : "translate-x-0",
-                                ].join(" ")}
+                                        ? 'translate-x-5'
+                                        : 'translate-x-0',
+                                ].join(' ')}
                             />
                         </button>
                     </div>
@@ -315,23 +311,20 @@ interface HeroSectionHeaderProps {
     user?: HeaderUser;
 }
 
-export default function HeroSectionHeader({
-    user,
-}: HeroSectionHeaderProps) {
+export default function HeroSectionHeader({ user }: HeroSectionHeaderProps) {
     const { authState } = useAuthContext();
 
     const [isProfileOpen, setIsProfileOpen] = useState(false);
     const profileRef = useRef<HTMLDivElement>(null);
 
-    const isAuthenticated =
-        authState.status === "authenticated";
+    const isAuthenticated = authState.status === 'authenticated';
 
     const profileUser: HeaderUser = user ?? {
-        firstName: "First",
-        lastName: "Last",
-        email: "email@gmail.com",
+        firstName: 'First',
+        lastName: 'Last',
+        email: 'email@gmail.com',
         avatarUrl: unavailableImg,
-        role: "admin",
+        role: 'admin',
     };
 
     useEffect(() => {
@@ -349,24 +342,18 @@ export default function HeroSectionHeader({
         };
 
         const closeOnEscape = (event: KeyboardEvent) => {
-            if (event.key === "Escape") {
+            if (event.key === 'Escape') {
                 setIsProfileOpen(false);
             }
         };
 
-        document.addEventListener("mousedown", closeOnOutsideClick);
-        document.addEventListener("keydown", closeOnEscape);
+        document.addEventListener('mousedown', closeOnOutsideClick);
+        document.addEventListener('keydown', closeOnEscape);
 
         return () => {
-            document.removeEventListener(
-                "mousedown",
-                closeOnOutsideClick,
-            );
+            document.removeEventListener('mousedown', closeOnOutsideClick);
 
-            document.removeEventListener(
-                "keydown",
-                closeOnEscape,
-            );
+            document.removeEventListener('keydown', closeOnEscape);
         };
     }, [isProfileOpen]);
 
@@ -374,125 +361,106 @@ export default function HeroSectionHeader({
         <header
             className="
                 relative z-30
-                border-b border-white/10
-                bg-neutral-900/80
+                bg-neutral-900/85
                 backdrop-blur-md
             "
         >
             <div
                 className="
-                    mx-auto grid h-20 w-full max-w-[90rem]
+                    mx-auto grid min-h-20 w-full max-w-[90rem]
                     grid-cols-[minmax(0,1fr)_auto]
-                    items-center px-5
-                    sm:px-8
-                    md:grid-cols-[1fr_auto_1fr]
-                    lg:h-24 lg:px-12
+                    items-center gap-3
+                    px-4 lg:py-2
+                    sm:px-6
+                    md:px-8
+                    lg:min-h-24
+                    lg:grid-cols-[1fr_auto_1fr]
+                    lg:gap-6 lg:px-12
                 "
             >
-                {/* Left: mobile menu and logo */}
-                <div className="flex min-w-0 items-center gap-2 justify-self-start">
+                {/* Left: menu and logo */}
+                <div className="flex min-w-0 items-center justify-self-start">
                     <button
                         type="button"
                         aria-label="Open navigation menu"
                         aria-controls="mobile-navigation"
                         aria-expanded="false"
                         className="
-                            grid size-10 shrink-0
-                            place-items-center rounded-full
-                            text-white transition
+                            mr-2 grid size-10 shrink-0
+                            cursor-pointer place-items-center
+                            rounded-full text-white
+                            transition
                             hover:bg-white/10
                             hover:text-primary-900
                             focus-visible:outline-none
                             focus-visible:ring-2
                             focus-visible:ring-primary-900
-                            md:hidden
+                            sm:mr-3 sm:size-11
+                            lg:hidden
                         "
                     >
-                        <FiMenu
-                            aria-hidden="true"
-                            className="text-2xl"
-                        />
+                        <FiMenu aria-hidden="true" className="text-2xl" />
                     </button>
 
                     <Link
                         to="/"
-                        aria-label="Mount Zion home"
-                        className="group inline-flex min-w-0 items-center gap-3"
+                        aria-label="RCCG Mount Zion home"
+                        className="
+                            flex min-w-0 items-center
+                            transition-opacity
+                            hover:opacity-90
+                            focus-visible:rounded-lg
+                            focus-visible:outline-none
+                            focus-visible:ring-2
+                            focus-visible:ring-primary-900
+                        "
                     >
-                        <span
+                        <Logo
                             className="
-                                grid size-10 shrink-0
-                                place-items-center rounded-full
-                                border border-primary-900
-                                bg-neutral-900
-                                text-[0.65rem] font-bold
-                                text-primary-900
-                                transition
-                                group-hover:bg-primary-900
-                                group-hover:text-white
-                                lg:size-11
+                                h-12 w-auto max-w-[7.5rem]
+                                shrink-0 object-contain
+                                sm:h-14 sm:max-w-[9rem]
+                                md:h-20 md:max-w-[10rem]
+                                lg:h-20 lg:max-w-[14rem]
+                                xl:h-[5.5rem] xl:max-w-[15rem]
                             "
-                        >
-                            MZ
-                        </span>
-
-                        <span className="hidden leading-none sm:block">
-                            <span
-                                className="
-                                    block text-xs font-bold
-                                    uppercase tracking-[0.14em]
-                                    text-primary-900
-                                "
-                            >
-                                Mount Zion
-                            </span>
-
-                            <span
-                                className="
-                                    mt-1 block text-[0.55rem]
-                                    uppercase tracking-[0.3em]
-                                    text-neutral-400
-                                "
-                            >
-                                Church
-                            </span>
-                        </span>
+                        />
                     </Link>
                 </div>
 
                 {/* Centre: desktop navigation */}
                 <nav
                     aria-label="Primary navigation"
-                    className="hidden justify-self-center md:block"
+                    className="hidden justify-self-center lg:block"
                 >
-                    <ul className="flex items-center gap-6 lg:gap-8">
+                    <ul className="flex items-center gap-5 xl:gap-8">
                         {navigationItems.map((item) => (
                             <li key={item.to}>
                                 <NavLink
                                     to={item.to}
-                                    end={item.to === "/"}
+                                    end={item.to === '/'}
                                     className={({ isActive }) =>
                                         [
                                             `
-                                                relative py-2
-                                                text-sm font-medium
-                                                transition-colors
+                                                relative whitespace-nowrap py-2
+                                                text-xs font-medium
+                                                transition-colors duration-200
                                                 after:absolute
-                                                after:bottom-0
-                                                after:left-0
+                                                after:bottom-0 after:left-0
                                                 after:h-px
                                                 after:bg-primary-900
                                                 after:transition-all
+                                                after:duration-200
+                                                xl:text-sm
                                             `,
                                             isActive
-                                                ? "text-primary-900 after:w-full"
+                                                ? 'text-primary-900 after:w-full'
                                                 : `
-                                                    text-neutral-300
-                                                    after:w-0
+                                                    text-neutral-300 after:w-0
                                                     hover:text-white
                                                     hover:after:w-full
                                                 `,
-                                        ].join(" ")
+                                        ].join(' ')
                                     }
                                 >
                                     {item.label}
@@ -503,57 +471,62 @@ export default function HeroSectionHeader({
                 </nav>
 
                 {/* Right: login or profile */}
-                <div className="justify-self-end">
+                <div className="flex items-center justify-self-end">
                     {isAuthenticated ? (
                         <div ref={profileRef} className="relative">
                             <button
                                 type="button"
                                 aria-label="Open account menu"
-                                aria-haspopup="true"
+                                aria-haspopup="menu"
                                 aria-expanded={isProfileOpen}
                                 aria-controls="header-profile-dropdown"
-                                onClick={() =>
-                                    setIsProfileOpen((open) => !open)
-                                }
+                                onClick={() => {
+                                    setIsProfileOpen((open) => !open);
+                                }}
                                 className="
-                                    relative grid size-11
-                                    place-items-center rounded-full
-                                    transition
+                                    relative grid size-12
+                                    cursor-pointer place-items-center
+                                    rounded-full transition
+                                    hover:bg-white/[0.06]
                                     focus-visible:outline-none
                                     focus-visible:ring-2
                                     focus-visible:ring-primary-900
                                     focus-visible:ring-offset-2
                                     focus-visible:ring-offset-neutral-900
+                                    sm:size-[3.25rem]
+                                    lg:size-14
                                 "
                             >
                                 <img
                                     src={
-                                        profileUser.avatarUrl ||
-                                        unavailableImg
+                                        profileUser.avatarUrl || unavailableImg
                                     }
                                     alt=""
                                     className={[
                                         `
-                                            size-9 rounded-full
+                                            size-10 rounded-full
                                             border-2 object-cover
                                             transition
+                                            sm:size-11
+                                            lg:size-12
                                         `,
                                         isProfileOpen
-                                            ? "border-primary-900"
+                                            ? 'border-primary-900'
                                             : `
                                                 border-white/30
                                                 hover:border-primary-900
                                             `,
-                                    ].join(" ")}
+                                    ].join(' ')}
                                 />
 
                                 <span
                                     aria-hidden="true"
                                     className="
-                                        absolute bottom-0 right-0
-                                        size-3 rounded-full
+                                        absolute bottom-0.5 right-0.5
+                                        size-3.5 rounded-full
                                         border-2 border-neutral-900
                                         bg-primary-900
+                                        lg:size-4
                                     "
                                 />
                             </button>
@@ -561,7 +534,9 @@ export default function HeroSectionHeader({
                             {isProfileOpen && (
                                 <HeaderDropDown
                                     user={profileUser}
-                                    onClose={() => setIsProfileOpen(false)}
+                                    onClose={() => {
+                                        setIsProfileOpen(false);
+                                    }}
                                 />
                             )}
                         </div>
@@ -569,17 +544,21 @@ export default function HeroSectionHeader({
                         <Link
                             to="/auth/login"
                             className="
-                                inline-flex min-h-10
+                                inline-flex min-h-10 shrink-0
                                 items-center justify-center
                                 rounded-full
                                 border border-primary-900
-                                px-5 text-sm font-semibold
-                                text-primary-900 transition
+                                px-4 text-sm font-semibold
+                                text-primary-900
+                                transition
                                 hover:bg-primary-900
                                 hover:text-white
                                 focus-visible:outline-none
                                 focus-visible:ring-2
                                 focus-visible:ring-primary-900
+                                focus-visible:ring-offset-2
+                                focus-visible:ring-offset-neutral-900
+                                sm:px-5
                             "
                         >
                             Login
@@ -590,7 +569,6 @@ export default function HeroSectionHeader({
         </header>
     );
 }
-
 
 function LogoutBtn() {
     const { logout } = useAuthContext();
@@ -608,16 +586,13 @@ function LogoutBtn() {
 
             if (!response.success) {
                 throw new Error(
-                    getApiResponseErrorMsg(
-                        response,
-                        "Failed to log out",
-                    ),
+                    getApiResponseErrorMsg(response, 'Failed to log out')
                 );
             }
         } catch (err) {
             const errMsg = getTryCatchErrorMsg(
                 err,
-                "Server Error: Something went wrong",
+                'Server Error: Something went wrong'
             );
 
             if (ENV.DEBUG) {
@@ -663,10 +638,7 @@ function LogoutBtn() {
                     "
                 >
                     {isPending ? (
-                        <FiLoader
-                            aria-hidden="true"
-                            className="animate-spin"
-                        />
+                        <FiLoader aria-hidden="true" className="animate-spin" />
                     ) : (
                         <FiLogOut aria-hidden="true" />
                     )}
@@ -677,13 +649,13 @@ function LogoutBtn() {
                         className="block text-sm font-bold text-accent-600"
                         aria-live="polite"
                     >
-                        {isPending ? "Logging out..." : "Log out"}
+                        {isPending ? 'Logging out...' : 'Log out'}
                     </span>
 
                     <span className="mt-0.5 block text-xs text-neutral-500">
                         {isPending
-                            ? "Ending your current session"
-                            : "End your current session"}
+                            ? 'Ending your current session'
+                            : 'End your current session'}
                     </span>
                 </span>
             </button>

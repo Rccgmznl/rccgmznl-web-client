@@ -7,7 +7,7 @@ export interface User {
     isAdmin: boolean;
 
     /**
-     * ISO datetime string. 
+     * ISO datetime string.
      *
      * Example:
      * "2026-07-16T18:30:00Z"

@@ -6,7 +6,6 @@ import tailwindcss from '@tailwindcss/vite';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-
 // For __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -16,6 +15,7 @@ export default defineConfig({
     resolve: {
         alias: {
             '@config': path.resolve(__dirname, 'src/config'),
+            '@assets': path.resolve(__dirname, 'src/assets'),
             '@app': path.resolve(__dirname, 'src/app'),
             '@services': path.resolve(__dirname, 'src/services'),
             '@global': path.resolve(__dirname, 'src/global'),
@@ -23,6 +23,6 @@ export default defineConfig({
             '@shared': path.resolve(__dirname, 'src/shared'),
             '@utils': path.resolve(__dirname, 'src/utils'),
             '@features': path.resolve(__dirname, 'src/features'),
-        }
+        },
     },
 });

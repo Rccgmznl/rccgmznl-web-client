@@ -1,11 +1,6 @@
-import {
-    FiArrowUpRight,
-    FiClock,
-    FiMapPin,
-} from "react-icons/fi";
+import { FiArrowUpRight, FiClock, FiMapPin } from 'react-icons/fi';
 
-const churchAddress =
-    "108 Blackmash road";
+const churchAddress = '108 Blackmash road';
 
 const encodedAddress = encodeURIComponent(churchAddress);
 
@@ -42,10 +37,7 @@ export default function MapSection() {
                             sm:text-4xl lg:text-5xl
                         "
                     >
-                        Our{" "}
-                        <span className="text-primary-900">
-                            location
-                        </span>
+                        Our <span className="text-primary-900">location</span>
                     </h2>
 
                     <p
@@ -128,10 +120,10 @@ export default function MapSection() {
                                     </p>
 
                                     <p className="mt-1 text-sm text-white/60">
-                                    First Service: 9am - 11am
+                                        First Service: 9am - 11am
                                     </p>
                                     <p className="mt-1 text-sm text-white/60">
-                                    Second Service: 11:15am - 1pm
+                                        Second Service: 11:15am - 1pm
                                     </p>
                                 </div>
                             </div>
@@ -155,7 +147,6 @@ export default function MapSection() {
                             "
                         >
                             Get directions
-
                             <FiArrowUpRight
                                 aria-hidden="true"
                                 className="

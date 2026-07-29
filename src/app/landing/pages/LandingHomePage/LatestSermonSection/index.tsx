@@ -1,22 +1,17 @@
-import { NavLink } from "react-router";
-import {
-    FiArrowRight,
-    FiCalendar,
-    FiPlay,
-    FiUser,
-} from "react-icons/fi";
+import { NavLink } from 'react-router';
+import { FiArrowRight, FiCalendar, FiPlay, FiUser } from 'react-icons/fi';
 
-import unavailableImg from "@shared/images/unavailable.png";
+import unavailableImg from '@shared/images/unavailable.png';
 
 const latestSermon = {
-    title: "Why We Need Faith",
-    speaker: "Pastor Akin Familusi",
-    date: "July 11, 2026",
-    dateTime: "2026-07-11",
+    title: 'Why We Need Faith',
+    speaker: 'Pastor Akin Familusi',
+    date: 'July 11, 2026',
+    dateTime: '2026-07-11',
     description:
-        "A timely message about trusting God through uncertainty and continuing to walk confidently in His promises.",
+        'A timely message about trusting God through uncertainty and continuing to walk confidently in His promises.',
     image: unavailableImg,
-    sermonUrl: "/sermons/why-we-need-faith",
+    sermonUrl: '/sermons/why-we-need-faith',
 };
 
 export default function LatestSermonSection() {
@@ -227,9 +222,7 @@ export default function LatestSermonSection() {
                                         className="translate-x-px"
                                     />
                                 </span>
-
                                 Watch sermon
-
                                 <FiArrowRight
                                     aria-hidden="true"
                                     className="
@@ -264,10 +257,8 @@ export default function LatestSermonSection() {
                                 sm:text-3xl
                             "
                         >
-                            Don’t miss another{" "}
-                            <span className="text-primary-900">
-                                sermon
-                            </span>
+                            Don’t miss another{' '}
+                            <span className="text-primary-900">sermon</span>
                         </h3>
                     </div>
 
@@ -292,7 +283,6 @@ export default function LatestSermonSection() {
                         "
                     >
                         All sermons
-
                         <FiArrowRight
                             aria-hidden="true"
                             className="transition-transform duration-200 group-hover:translate-x-1"

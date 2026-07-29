@@ -1,4 +1,7 @@
-import { createMockResponse, type ApiResponseInterface } from "@services/api.service";
+import {
+    createMockResponse,
+    type ApiResponseInterface,
+} from '@services/api.service';
 
 export const mockLogout = async (): Promise<ApiResponseInterface<null>> => {
     return createMockResponse({
@@ -6,4 +9,4 @@ export const mockLogout = async (): Promise<ApiResponseInterface<null>> => {
         data: null,
         status_code: 200,
     });
-}
+};
