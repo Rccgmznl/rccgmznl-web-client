@@ -2,118 +2,126 @@ import { ENV } from "@config/env";
 import { getTryCatchErrorMsg } from "@utils/getTryCatchErrorMsg";
 import type { LandingSession } from "../types";
 
+/**
+ * localStorage key used to persist landing-page UI preferences.
+ */
 export const LANDING_SESSION_STORAGE_KEY =
     "rccgmznl:landing-session";
 
-export function getLandingSession() {
+/**
+ * Checks whether an unknown value contains a valid landing session.
+ *
+ * Values read from localStorage cannot be trusted because they may be
+ * outdated, corrupted, or manually modified by the user.
+ */
+function isLandingSession(value: unknown): value is LandingSession {
+    if (
+        typeof value !== "object" ||
+        value === null
+    ) {
+        return false;
+    }
+
+    const session = value as Record<string, unknown>;
+
+    return typeof session.isEditMode === "boolean";
+}
+
+/**
+ * Retrieves and validates the persisted landing-page session.
+ *
+ * Returns null when no session exists, the stored value is invalid,
+ * or localStorage cannot be accessed.
+ */
+export function getLandingSession(): LandingSession | null {
     try {
-        const storageKey = `${LANDING_SESSION_STORAGE_KEY}`;
+        const rawSession = localStorage.getItem(
+            LANDING_SESSION_STORAGE_KEY,
+        );
 
-        /**
-         * Raw serialized landing session from localStorage.
-         */
-        const rawSession = localStorage.getItem(storageKey);
-
-        if (!rawSession) {
+        if (rawSession === null) {
             return null;
         }
 
-        /**
-         * Parse the cached JSON value.
-         *
-         * This cast does not fully validate the shape. The basic checks below
-         * protect the most important assumptions needed by the app.
-         */
-        const draft = JSON.parse(rawSession) as LandingSession;
+        const parsedSession: unknown = JSON.parse(rawSession);
 
-        /**
-         * Basic defensive checks.
-         *
-         * The cached session must:
-         * - exist
-         */
-        if (!draft || typeof draft !== "object") {
+        if (!isLandingSession(parsedSession)) {
             return null;
         }
 
-        return draft;
-
+        return parsedSession;
     } catch (error) {
         /**
-         * Corrupted storage, invalid JSON, or localStorage access issues should
-         * never crash runtime flow.
+         * Invalid JSON, restricted browser storage, or other storage errors
+         * should not prevent the application from loading.
          */
-        const errMsg =
-            getTryCatchErrorMsg(
-                error,
-                "Failed to retrieve landing session"
-            );
         if (ENV.DEBUG) {
-            console.error(errMsg);
+            console.error(
+                getTryCatchErrorMsg(
+                    error,
+                    "Failed to retrieve landing session.",
+                ),
+            );
         }
 
         return null;
     }
 }
 
+/**
+ * Persists the current landing-page session.
+ *
+ * Returns false when the session cannot be serialized or localStorage
+ * cannot be written to.
+ */
 export function saveLandingSession(
     session: LandingSession,
 ): boolean {
-
     try {
-        const storageKey = `${LANDING_SESSION_STORAGE_KEY}`;
-
-        /**
-         * Serialize the active session before saving.
-         */
-        const serializedSession = JSON.stringify(session);
-
         localStorage.setItem(
-            storageKey,
-            serializedSession,
+            LANDING_SESSION_STORAGE_KEY,
+            JSON.stringify(session),
         );
 
         return true;
-
     } catch (error) {
         /**
-         * Storage quota issues or serialization failures should not crash
-         * runtime flow.
+         * Storage quota, restricted browser storage, and serialization
+         * failures should not interrupt the current application session.
          */
-
-        const errMsg =
-            getTryCatchErrorMsg(
-                error,
-                "Failed to save landing session"
-            );
         if (ENV.DEBUG) {
-            console.error(errMsg);
+            console.error(
+                getTryCatchErrorMsg(
+                    error,
+                    "Failed to save landing session.",
+                ),
+            );
         }
 
         return false;
     }
 }
 
+/**
+ * Removes the persisted landing-page session.
+ *
+ * Returns false when localStorage cannot be accessed.
+ */
 export function removeLandingSession(): boolean {
     try {
-        const storageKey = LANDING_SESSION_STORAGE_KEY;
-
-        localStorage.removeItem(storageKey);
+        localStorage.removeItem(
+            LANDING_SESSION_STORAGE_KEY,
+        );
 
         return true;
-
     } catch (error) {
-        /**
-         * localStorage errors should not crash runtime flow.
-         */
-
-        const errMsg =
-            getTryCatchErrorMsg(
-                error,
-                "Failed to remove landing session"
-            );
         if (ENV.DEBUG) {
-            console.error(errMsg);
+            console.error(
+                getTryCatchErrorMsg(
+                    error,
+                    "Failed to remove landing session.",
+                ),
+            );
         }
 
         return false;

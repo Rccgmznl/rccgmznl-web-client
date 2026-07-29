@@ -12,6 +12,7 @@ import {
 
 import unavailableImg from "@shared/images/unavailable.png";
 import HeroSectionHeader from "./HeroSectionHeader";
+import HeroSectionBibleVerse from "./HeroSectionBibleVerse";
 
 const socialLinks = [
     {
@@ -104,33 +105,7 @@ export default function HeroSection() {
                     </div>
 
                     {/* Bible verse */}
-                    <article className="max-w-xl justify-self-end rounded-3xl border border-white/10 bg-black/25 p-6 text-right shadow-2xl shadow-black/20 backdrop-blur-md sm:p-8 lg:self-start lg:mt-12">
-                        <p className="text-sm font-bold text-primary-900 sm:text-base">
-                            Psalm 100:4
-                        </p>
-
-                        <blockquote className="mt-4 font-serif text-xl leading-relaxed text-white/90 sm:text-2xl">
-                            <span
-                                aria-hidden="true"
-                                className="mr-1 text-3xl leading-none text-primary-900"
-                            >
-                                “
-                            </span>
-
-                            Enter his gates with thanksgiving, and his
-                            courts with{" "}
-                            <strong className="font-semibold text-primary-900">
-                                praise
-                            </strong>
-
-                            <span
-                                aria-hidden="true"
-                                className="ml-1 text-3xl leading-none text-primary-900"
-                            >
-                                ”
-                            </span>
-                        </blockquote>
-                    </article>
+                    <HeroSectionBibleVerse />
                 </div>
 
                 {/* Bottom controls */}
