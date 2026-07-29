@@ -1,5 +1,5 @@
-import { createContext, useContext } from "react";
-import type { ModalContextInterface } from "../types";
+import { createContext, useContext } from 'react';
+import type { ModalContextInterface } from '../types';
 
 /**
  * Provides global modal controls to the application.
@@ -7,9 +7,9 @@ import type { ModalContextInterface } from "../types";
  * The default value is intentionally undefined so that using the
  * context outside of ModalProvider produces a clear runtime error.
  */
-export const ModalContext = createContext<
-    ModalContextInterface | undefined
->(undefined);
+export const ModalContext = createContext<ModalContextInterface | undefined>(
+    undefined
+);
 
 /**
  * Returns the global modal controls.
@@ -20,9 +20,7 @@ export function useModalContext(): ModalContextInterface {
     const context = useContext(ModalContext);
 
     if (context === undefined) {
-        throw new Error(
-            "useModalContext must be used within a ModalProvider.",
-        );
+        throw new Error('useModalContext must be used within a ModalProvider.');
     }
 
     return context;

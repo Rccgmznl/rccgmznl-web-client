@@ -1,50 +1,46 @@
-import { NavLink } from "react-router";
-import {
-    FiArrowRight,
-    FiCalendar,
-    FiClock,
-} from "react-icons/fi";
+import { NavLink } from 'react-router';
+import { FiArrowRight, FiCalendar, FiClock } from 'react-icons/fi';
 
-import unavailableImg from "@shared/images/unavailable.png";
+import unavailableImg from '@shared/images/unavailable.png';
 
 const events = [
     {
         id: 1,
-        month: "Dec",
-        day: "28",
-        year: "2025",
-        dateTime: "2025-12-28T11:00:00",
-        dateLabel: "Dec 28",
-        time: "11:00 AM – 3:00 PM",
-        title: "The Compass of a Caring Heart",
+        month: 'Dec',
+        day: '28',
+        year: '2025',
+        dateTime: '2025-12-28T11:00:00',
+        dateLabel: 'Dec 28',
+        time: '11:00 AM – 3:00 PM',
+        title: 'The Compass of a Caring Heart',
         description:
-            "Good morning, beloved community. It’s a joy to see each of your faces here today. Whether in person or in spirit, we often think of our lives as journeys, full of twists, turns and unexpected detours.",
+            'Good morning, beloved community. It’s a joy to see each of your faces here today. Whether in person or in spirit, we often think of our lives as journeys, full of twists, turns and unexpected detours.',
         image: unavailableImg,
     },
     {
         id: 2,
-        month: "Jan",
-        day: "04",
-        year: "2026",
-        dateTime: "2026-01-04T10:00:00",
-        dateLabel: "Jan 04",
-        time: "10:00 AM – 1:00 PM",
-        title: "Walking Together in Faith",
+        month: 'Jan',
+        day: '04',
+        year: '2026',
+        dateTime: '2026-01-04T10:00:00',
+        dateLabel: 'Jan 04',
+        time: '10:00 AM – 1:00 PM',
+        title: 'Walking Together in Faith',
         description:
-            "Join us for a meaningful gathering centered on fellowship, worship and growing together in faith. Everyone is welcome to attend and share in this special moment.",
+            'Join us for a meaningful gathering centered on fellowship, worship and growing together in faith. Everyone is welcome to attend and share in this special moment.',
         image: unavailableImg,
     },
     {
         id: 3,
-        month: "Jan",
-        day: "11",
-        year: "2026",
-        dateTime: "2026-01-11T11:00:00",
-        dateLabel: "Jan 11",
-        time: "11:00 AM – 3:00 PM",
-        title: "A New Season of Grace",
+        month: 'Jan',
+        day: '11',
+        year: '2026',
+        dateTime: '2026-01-11T11:00:00',
+        dateLabel: 'Jan 11',
+        time: '11:00 AM – 3:00 PM',
+        title: 'A New Season of Grace',
         description:
-            "Come and celebrate a new season filled with hope, prayer and renewed purpose. We will worship, connect and encourage one another as a church family.",
+            'Come and celebrate a new season filled with hope, prayer and renewed purpose. We will worship, connect and encourage one another as a church family.',
         image: unavailableImg,
     },
 ];
@@ -76,7 +72,6 @@ export default function EventsSection() {
                         className="group hidden items-center gap-2 text-sm font-semibold text-neutral-700 transition hover:text-primary-900 sm:flex"
                     >
                         View all events
-
                         <FiArrowRight
                             aria-hidden="true"
                             className="transition-transform group-hover:translate-x-1"
@@ -193,7 +188,6 @@ export default function EventsSection() {
                                         "
                                     >
                                         Event details
-
                                         <FiArrowRight
                                             aria-hidden="true"
                                             className="transition-transform group-hover:translate-x-1"
@@ -241,11 +235,8 @@ export default function EventsSection() {
                     "
                 >
                     <h3 className="max-w-3xl text-2xl font-black uppercase leading-tight tracking-[-0.02em] sm:text-3xl">
-                        Join{" "}
-                        <span className="text-primary-900">
-                            us
-                        </span>{" "}
-                        for a new month of wonders
+                        Join <span className="text-primary-900">us</span> for a
+                        new month of wonders
                     </h3>
 
                     <NavLink

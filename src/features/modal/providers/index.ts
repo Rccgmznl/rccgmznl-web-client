@@ -1,4 +1,4 @@
-import ModalProvider from "./modal.provider";
+import ModalProvider from './modal.provider';
 
-export { useModalContext } from "./modal.ctx";
+export { useModalContext } from './modal.ctx';
 export default ModalProvider;

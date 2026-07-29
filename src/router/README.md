@@ -1,6 +1,6 @@
 # App Routing & Feature Routes
 
-This module manages routing across the application using **React Router**. 
+This module manages routing across the application using **React Router**.
 
 To keep the codebase modular, routes are **decentralized**: each feature or domain exports its own route configuration, which is then imported and merged into the root router.
 
@@ -9,6 +9,7 @@ To keep the codebase modular, routes are **decentralized**: each feature or doma
 ## Quick Setup
 
 ### 1. Install
+
 ```bash
 npm install react-router react-router-dom
 
@@ -46,16 +47,15 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 
 export const authRoutes = [
-  {
-    path: '/login',
-    element: <LoginPage/>,
-  },
-  {
-    path: '/register',
-    element: <RegisterPage/>,
-  },
+    {
+        path: '/login',
+        element: <LoginPage />,
+    },
+    {
+        path: '/register',
+        element: <RegisterPage />,
+    },
 ];
-
 ```
 
 ### Step 2: Root Router Combines Them (`router/index.jsx`)
@@ -68,15 +68,14 @@ import { authRoutes } from '../features/auth/routes';
 import { dashboardRoutes } from '../features/dashboard/routes';
 
 export const router = createBrowserRouter([
-  ...authRoutes,
-  ...dashboardRoutes,
-  // Fallback / Catch-all route
-  {
-    path: '*',
-    element: <div>Page Not Found</div>,
-  },
+    ...authRoutes,
+    ...dashboardRoutes,
+    // Fallback / Catch-all route
+    {
+        path: '*',
+        element: <div>Page Not Found</div>,
+    },
 ]);
-
 ```
 
 ### Step 3: Provide to the App (`main.jsx` / `App.jsx`)
@@ -90,11 +89,10 @@ import { RouterProvider } from 'react-router-dom';
 import { router } from './router';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <RouterProvider router="{router}"/>
-  </React.StrictMode>
+    <React.StrictMode>
+        <RouterProvider router="{router}" />
+    </React.StrictMode>
 );
-
 ```
 
 ---

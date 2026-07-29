@@ -16,7 +16,7 @@
 .skeleton-shimmer::after {
     position: absolute;
     inset: 0;
-    content: "";
+    content: '';
     transform: translateX(-100%);
     background: linear-gradient(
         90deg,

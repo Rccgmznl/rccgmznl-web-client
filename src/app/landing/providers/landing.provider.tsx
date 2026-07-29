@@ -1,20 +1,14 @@
-import {
-    useState,
-    type ReactNode,
-} from "react";
+import { useState, type ReactNode } from 'react';
 
-import type {
-    LandingContextInterface,
-    LandingSession,
-} from "../types";
+import type { LandingContextInterface, LandingSession } from '../types';
 
 import {
     getLandingSession,
     removeLandingSession as removeStoredLandingSession,
     saveLandingSession,
-} from "./landing.storage";
+} from './landing.storage';
 
-import { LandingContext } from "./landing.ctx";
+import { LandingContext } from './landing.ctx';
 
 interface LandingProviderProps {
     children: ReactNode;
@@ -33,16 +27,10 @@ const DEFAULT_LANDING_SESSION: LandingSession = {
  * The session is restored from localStorage when the provider mounts and
  * remains synchronized with localStorage whenever it is updated.
  */
-export default function LandingProvider({
-    children,
-}: LandingProviderProps) {
-    const [landingSession, setLandingSession] =
-        useState<LandingSession>(() => {
-            return (
-                getLandingSession() ??
-                DEFAULT_LANDING_SESSION
-            );
-        });
+export default function LandingProvider({ children }: LandingProviderProps) {
+    const [landingSession, setLandingSession] = useState<LandingSession>(() => {
+        return getLandingSession() ?? DEFAULT_LANDING_SESSION;
+    });
 
     /**
      * Updates the active landing-page session and persists the new value.
@@ -53,7 +41,7 @@ export default function LandingProvider({
     const updateLandingSession = (session: LandingSession): void => {
         setLandingSession(session);
         saveLandingSession(session);
-    }
+    };
 
     /**
      * Removes the persisted session and restores the default landing state.
@@ -61,16 +49,14 @@ export default function LandingProvider({
     const resetLandingSession = (): void => {
         removeStoredLandingSession();
 
-        setLandingSession(
-            DEFAULT_LANDING_SESSION,
-        );
-    }
+        setLandingSession(DEFAULT_LANDING_SESSION);
+    };
 
     const value: LandingContextInterface = {
         landingSession,
         updateLandingSession,
         resetLandingSession,
-    }
+    };
 
     return (
         <LandingContext.Provider value={value}>

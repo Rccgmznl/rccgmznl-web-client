@@ -1,24 +1,19 @@
-import { Link } from "react-router";
-import {
-    FiArrowRight,
-    FiClock,
-    FiMapPin,
-    FiUsers,
-} from "react-icons/fi";
+import { Link } from 'react-router';
+import { FiArrowRight, FiClock, FiMapPin, FiUsers } from 'react-icons/fi';
 
-import unavailableImg from "@shared/images/unavailable.png";
+import unavailableImg from '@shared/images/unavailable.png';
 
 const rideDetails = [
     {
-        label: "Available for church services",
+        label: 'Available for church services',
         icon: FiClock,
     },
     {
-        label: "Pickup locations are arranged in advance",
+        label: 'Pickup locations are arranged in advance',
         icon: FiMapPin,
     },
     {
-        label: "Open to members and first-time visitors",
+        label: 'Open to members and first-time visitors',
         icon: FiUsers,
     },
 ];
@@ -58,10 +53,8 @@ export default function RideSection() {
                                 sm:text-5xl lg:text-6xl
                             "
                         >
-                            Need a{" "}
-                            <span className="text-primary-900">
-                                ride?
-                            </span>
+                            Need a{' '}
+                            <span className="text-primary-900">ride?</span>
                         </h2>
 
                         <p className="mt-6 max-w-xl text-base leading-7 text-white/70 sm:text-lg sm:leading-8">
@@ -122,7 +115,6 @@ export default function RideSection() {
                                 "
                             >
                                 Request a ride
-
                                 <FiArrowRight
                                     aria-hidden="true"
                                     className="

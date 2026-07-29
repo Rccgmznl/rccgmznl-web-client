@@ -1,21 +1,14 @@
-import {
-    useEffect,
-    useState,
-    type ReactNode,
-} from "react";
+import { useEffect, useState, type ReactNode } from 'react';
 
-import type {
-    AuthContextInterface,
-    AuthState,
-} from "../types";
+import type { AuthContextInterface, AuthState } from '../types';
 
-import { getApiResponseErrorMsg } from "@services/api.service";
-import { getTryCatchErrorMsg } from "@utils/getTryCatchErrorMsg";
-import { ENV } from "@config/env";
-import Loading from "@shared/Loading";
+import { getApiResponseErrorMsg } from '@services/api.service';
+import { getTryCatchErrorMsg } from '@utils/getTryCatchErrorMsg';
+import { ENV } from '@config/env';
+import Loading from '@shared/Loading';
 
-import { AuthContext } from "./auth.ctx";
-import { mockTokenRefresh } from "../api/token-refresh.mock";
+import { AuthContext } from './auth.ctx';
+import { mockTokenRefresh } from '../api';
 
 interface AuthProviderProps {
     children: ReactNode;
@@ -23,14 +16,12 @@ interface AuthProviderProps {
 
 /**
  * Auth Provider.
- * Provide children with authentication state and 
+ * Provide children with authentication state and
  * access token
  */
-export default function AuthProvider({
-    children,
-}: AuthProviderProps) {
+export default function AuthProvider({ children }: AuthProviderProps) {
     const [authState, setAuthState] = useState<AuthState>({
-        status: "initializing",
+        status: 'initializing',
     });
 
     /**
@@ -41,10 +32,10 @@ export default function AuthProvider({
      */
     const login = (accessToken: string): void => {
         setAuthState({
-            status: "authenticated",
+            status: 'authenticated',
             accessToken,
         });
-    }
+    };
 
     /**
      * Clears the access token from application memory.
@@ -54,7 +45,7 @@ export default function AuthProvider({
      */
     const logout = (): void => {
         setAuthState({
-            status: "unauthenticated",
+            status: 'unauthenticated',
         });
     };
 
@@ -75,8 +66,8 @@ export default function AuthProvider({
                     throw new Error(
                         getApiResponseErrorMsg(
                             response,
-                            "Token refresh failed.",
-                        ),
+                            'Token refresh failed.'
+                        )
                     );
                 }
 
@@ -94,8 +85,8 @@ export default function AuthProvider({
                     console.error(
                         getTryCatchErrorMsg(
                             error,
-                            "Unable to restore the authenticated session.",
-                        ),
+                            'Unable to restore the authenticated session.'
+                        )
                     );
                 }
 
@@ -119,17 +110,15 @@ export default function AuthProvider({
     const value: AuthContextInterface = {
         authState,
         login,
-        logout
-    }
+        logout,
+    };
 
     return (
         <AuthContext.Provider value={value}>
-            {authState.status === "initializing" ? (
+            {authState.status === 'initializing' ? (
                 <Loading />
             ) : (
-                <>
-                    {children}
-                </>
+                <>{children}</>
             )}
         </AuthContext.Provider>
     );

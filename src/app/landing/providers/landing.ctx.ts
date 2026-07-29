@@ -1,9 +1,6 @@
-import {
-    createContext,
-    useContext,
-} from "react";
+import { createContext, useContext } from 'react';
 
-import type { LandingContextInterface } from "../types";
+import type { LandingContextInterface } from '../types';
 
 /**
  * Provides landing-page session state and actions.
@@ -25,7 +22,7 @@ export function useLandingContext(): LandingContextInterface {
 
     if (context === undefined) {
         throw new Error(
-            "useLandingContext must be used within a LandingProvider.",
+            'useLandingContext must be used within a LandingProvider.'
         );
     }
 

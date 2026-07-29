@@ -1,8 +1,8 @@
-import type { ReactNode } from "react";
-import { FiEdit3 } from "react-icons/fi";
+import type { ReactNode } from 'react';
+import { FiEdit3 } from 'react-icons/fi';
 
-import { useModalContext } from "@features/modal/providers";
-import { useAuthContext } from "@features/auth";
+import { useModalContext } from '@features/modal/providers';
+import { useAuthContext } from '@features/auth';
 
 interface EditModeBtnProps {
     content: ReactNode;
@@ -11,12 +11,12 @@ interface EditModeBtnProps {
 
 export default function EditModeBtn({
     content,
-    label = "Edit section",
+    label = 'Edit section',
 }: EditModeBtnProps) {
     const { openModal } = useModalContext();
     const { authState } = useAuthContext();
 
-    if (authState.status !== "authenticated") {
+    if (authState.status !== 'authenticated') {
         return null;
     }
 

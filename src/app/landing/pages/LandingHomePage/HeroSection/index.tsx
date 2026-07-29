@@ -1,38 +1,35 @@
-import { Link } from "react-router";
-import {
-    FiChevronLeft,
-    FiChevronRight,
-} from "react-icons/fi";
+import { Link } from 'react-router';
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import {
     FaFacebookF,
     FaInstagram,
     FaXTwitter,
     FaYoutube,
-} from "react-icons/fa6";
+} from 'react-icons/fa6';
 
-import unavailableImg from "@shared/images/unavailable.png";
-import HeroSectionHeader from "./HeroSectionHeader";
-import HeroSectionBibleVerse from "./HeroSectionBibleVerse";
+import unavailableImg from '@shared/images/unavailable.png';
+import HeroSectionHeader from './HeroSectionHeader';
+import HeroSectionBibleVerse from './HeroSectionBibleVerse';
 
 const socialLinks = [
     {
-        label: "YouTube",
-        href: "#",
+        label: 'YouTube',
+        href: '#',
         icon: FaYoutube,
     },
     {
-        label: "X",
-        href: "#",
+        label: 'X',
+        href: '#',
         icon: FaXTwitter,
     },
     {
-        label: "Facebook",
-        href: "#",
+        label: 'Facebook',
+        href: '#',
         icon: FaFacebookF,
     },
     {
-        label: "Instagram",
-        href: "#",
+        label: 'Instagram',
+        href: '#',
         icon: FaInstagram,
     },
 ];
@@ -83,9 +80,7 @@ export default function HeroSection() {
                         </div>
 
                         <h1 className="font-sans text-[clamp(3.4rem,9vw,8rem)] font-black uppercase leading-[0.82] tracking-[-0.055em]">
-                            <span className="block text-white">
-                                Welcome
-                            </span>
+                            <span className="block text-white">Welcome</span>
 
                             <span className="mt-2 block text-primary-900">
                                 Home!

@@ -1,1 +1,1 @@
-export * from "./useFeaturedBibleVerse";
+export * from './useFeaturedBibleVerse';

@@ -1,12 +1,11 @@
-import { ENV } from "@config/env";
-import { getTryCatchErrorMsg } from "@utils/getTryCatchErrorMsg";
-import type { LandingSession } from "../types";
+import { ENV } from '@config/env';
+import { getTryCatchErrorMsg } from '@utils/getTryCatchErrorMsg';
+import type { LandingSession } from '../types';
 
 /**
  * localStorage key used to persist landing-page UI preferences.
  */
-export const LANDING_SESSION_STORAGE_KEY =
-    "rccgmznl:landing-session";
+export const LANDING_SESSION_STORAGE_KEY = 'rccgmznl:landing-session';
 
 /**
  * Checks whether an unknown value contains a valid landing session.
@@ -15,16 +14,13 @@ export const LANDING_SESSION_STORAGE_KEY =
  * outdated, corrupted, or manually modified by the user.
  */
 function isLandingSession(value: unknown): value is LandingSession {
-    if (
-        typeof value !== "object" ||
-        value === null
-    ) {
+    if (typeof value !== 'object' || value === null) {
         return false;
     }
 
     const session = value as Record<string, unknown>;
 
-    return typeof session.isEditMode === "boolean";
+    return typeof session.isEditMode === 'boolean';
 }
 
 /**
@@ -35,9 +31,7 @@ function isLandingSession(value: unknown): value is LandingSession {
  */
 export function getLandingSession(): LandingSession | null {
     try {
-        const rawSession = localStorage.getItem(
-            LANDING_SESSION_STORAGE_KEY,
-        );
+        const rawSession = localStorage.getItem(LANDING_SESSION_STORAGE_KEY);
 
         if (rawSession === null) {
             return null;
@@ -59,8 +53,8 @@ export function getLandingSession(): LandingSession | null {
             console.error(
                 getTryCatchErrorMsg(
                     error,
-                    "Failed to retrieve landing session.",
-                ),
+                    'Failed to retrieve landing session.'
+                )
             );
         }
 
@@ -74,13 +68,11 @@ export function getLandingSession(): LandingSession | null {
  * Returns false when the session cannot be serialized or localStorage
  * cannot be written to.
  */
-export function saveLandingSession(
-    session: LandingSession,
-): boolean {
+export function saveLandingSession(session: LandingSession): boolean {
     try {
         localStorage.setItem(
             LANDING_SESSION_STORAGE_KEY,
-            JSON.stringify(session),
+            JSON.stringify(session)
         );
 
         return true;
@@ -91,10 +83,7 @@ export function saveLandingSession(
          */
         if (ENV.DEBUG) {
             console.error(
-                getTryCatchErrorMsg(
-                    error,
-                    "Failed to save landing session.",
-                ),
+                getTryCatchErrorMsg(error, 'Failed to save landing session.')
             );
         }
 
@@ -109,18 +98,13 @@ export function saveLandingSession(
  */
 export function removeLandingSession(): boolean {
     try {
-        localStorage.removeItem(
-            LANDING_SESSION_STORAGE_KEY,
-        );
+        localStorage.removeItem(LANDING_SESSION_STORAGE_KEY);
 
         return true;
     } catch (error) {
         if (ENV.DEBUG) {
             console.error(
-                getTryCatchErrorMsg(
-                    error,
-                    "Failed to remove landing session.",
-                ),
+                getTryCatchErrorMsg(error, 'Failed to remove landing session.')
             );
         }
 

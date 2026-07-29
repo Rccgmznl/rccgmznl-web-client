@@ -1,13 +1,11 @@
-import {
-    useEffect,
-    useState,
-    type ReactNode,
-} from "react";
-import { createPortal } from "react-dom";
-import type { ModalContextInterface, ModalProviderProps, ModalState } from "../types";
-import { ModalContext } from "./modal.ctx";
-
-
+import { useEffect, useState, type ReactNode } from 'react';
+import { createPortal } from 'react-dom';
+import type {
+    ModalContextInterface,
+    ModalProviderProps,
+    ModalState,
+} from '../types';
+import { ModalContext } from './modal.ctx';
 
 /**
  * Manages the application's active modal.
@@ -15,9 +13,7 @@ import { ModalContext } from "./modal.ctx";
  * Only one modal can be displayed at a time. Opening another modal
  * replaces the currently active modal.
  */
-export default function ModalProvider({
-    children,
-}: ModalProviderProps) {
+export default function ModalProvider({ children }: ModalProviderProps) {
     const [modalState, setModalState] = useState<ModalState>({
         isOpen: false,
     });
@@ -50,27 +46,27 @@ export default function ModalProvider({
         }
 
         const handleKeyDown = (event: KeyboardEvent): void => {
-            if (event.key === "Escape") {
+            if (event.key === 'Escape') {
                 closeModal();
             }
         };
 
-        window.addEventListener("keydown", handleKeyDown);
+        window.addEventListener('keydown', handleKeyDown);
 
         // Prevent scrolling when modal is opened
         const previousOverflow = document.body.style.overflow;
-        document.body.style.overflow = "hidden";
+        document.body.style.overflow = 'hidden';
 
         return () => {
             document.body.style.overflow = previousOverflow;
-            window.removeEventListener("keydown", handleKeyDown);
+            window.removeEventListener('keydown', handleKeyDown);
         };
     }, [modalState.isOpen]);
 
     const value: ModalContextInterface = {
         openModal,
         closeModal,
-    }
+    };
 
     return (
         <ModalContext.Provider value={value}>
@@ -104,9 +100,8 @@ export default function ModalProvider({
                             {modalState.content}
                         </div>
                     </div>,
-                    document.body,
-                )
-            }
+                    document.body
+                )}
         </ModalContext.Provider>
     );
 }

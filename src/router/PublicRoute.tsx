@@ -1,6 +1,6 @@
-import { useAuthContext } from "@features/auth";
-import type { ReactNode } from "react";
-import { Navigate } from "react-router";
+import { useAuthContext } from '@features/auth';
+import type { ReactNode } from 'react';
+import { Navigate } from 'react-router';
 
 interface PublicRouteProps {
     children: ReactNode;
@@ -16,18 +16,11 @@ interface PublicRouteProps {
  *
  * Authenticated users are redirected to the application's home page.
  */
-export default function PublicRoute({
-    children,
-}: PublicRouteProps) {
+export default function PublicRoute({ children }: PublicRouteProps) {
     const { authState } = useAuthContext();
 
-    if (authState.status === "authenticated") {
-        return (
-            <Navigate
-                to="/"
-                replace
-            />
-        );
+    if (authState.status === 'authenticated') {
+        return <Navigate to="/" replace />;
     }
 
     return children;

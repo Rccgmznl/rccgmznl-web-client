@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react';
 
 export interface ModalProviderProps {
     children: ReactNode;
@@ -6,12 +6,12 @@ export interface ModalProviderProps {
 
 export type ModalState =
     | {
-        isOpen: true;
-        content: ReactNode;
-    }
+          isOpen: true;
+          content: ReactNode;
+      }
     | {
-        isOpen: false;
-    };
+          isOpen: false;
+      };
 
 export interface ModalContextInterface {
     openModal: (content: ReactNode) => void;
