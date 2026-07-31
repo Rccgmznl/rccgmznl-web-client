@@ -89,6 +89,8 @@ export function useFeaturedBibleVerse() {
         staleTime: 30 * 60 * 1000,
         gcTime: 2 * 60 * 60 * 1000,
 
+        retry: 2,
+
         refetchOnWindowFocus: false,
         refetchOnReconnect: true,
     });
